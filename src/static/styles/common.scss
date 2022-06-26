@@ -1,0 +1,41 @@
+$black:#000000;
+$white:#ffffff;
+$red: #f56c6c;
+$blue:#409eff;
+$gray:#cccccc;
+
+// 水平垂直居中
+@mixin flex_c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// 单行文本省略号
+@mixin omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 多行文本省略号
+@mixin omit_more {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@mixin cursor_hand {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@mixin box_shadow($time : 0.5, $color: #cccccc) {
+  transition: ease $time + s;
+  &:hover {
+    box-shadow: 0 0 10px $color;
+  }
+}

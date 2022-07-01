@@ -1,12 +1,12 @@
 <div align=center>
   
-![webPack](https://img.shields.io/badge/5.54.0-webPack-orange)
-![Vue](https://img.shields.io/badge/2.6.14-Vue-brightgreen)
-![Axios](https://img.shields.io/badge/0.27.2-Axios-ff69b4)
-![Vue-Router](https://img.shields.io/badge/3.5.4-Vue%20Router-blueviolet)
-![Vuex](https://img.shields.io/badge/3.6.2-Vuex-yellow)
-![Vant](https://img.shields.io/badge/2.12.48-Vant-409EFF)
-![Sass](https://img.shields.io/badge/1.53.0-Sass-orange)
+![webpack](https://img.shields.io/badge/5.54.0-webpack-orange)
+![vue](https://img.shields.io/badge/2.6.14-vue-brightgreen)
+![axios](https://img.shields.io/badge/0.27.2-axios-ff69b4)
+![vue-Router](https://img.shields.io/badge/3.5.4-vue%20router-blueviolet)
+![vuex](https://img.shields.io/badge/3.6.2-vuex-yellow)
+![vant](https://img.shields.io/badge/2.12.48-vant-409EFF)
+![sass](https://img.shields.io/badge/1.53.0-sass-orange)
   
 </div>
 

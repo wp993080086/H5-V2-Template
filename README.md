@@ -1,4 +1,4 @@
-# 一个开箱即用的 webpack 5 + Vue 3 + Vant 2 + Vuex + Vue-Router 3 的PC端项目模板
+# 一个开箱即用的的PC端项目模板
 
 <div align=center>
   

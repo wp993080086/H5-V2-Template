@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <router-view />
+    <page-slide indexPagePath="/login">
+      <router-view />
+    </page-slide>
   </div>
 </template>
 
 <script>
+import pageSlide from '@/components/page-slide'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    pageSlide
+  }
 }
 </script>
 

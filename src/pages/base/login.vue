@@ -18,7 +18,6 @@ export default {
 
 <style scoped lang="scss">
 .login_box {
-  @include cursor_hand;
   width: 100%;
   height: auto;
   h1 {

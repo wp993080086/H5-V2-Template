@@ -2,6 +2,7 @@ const baseURL = process.env.VUE_APP_URL
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const path = require('path')
+
 const resolve = (dir) => path.join(__dirname, '.', dir)
 const productionGzipExtensions = ['js', 'css']
 
@@ -15,20 +16,25 @@ function addStyleResource(rule) {
       ]
     })
 }
-
-const CDN = {
+// 开发的cdn
+const devCdn = {
+  css: ['https://unpkg.com/vant@2.12.48/lib/index.css'],
+  js: []
+}
+// 打包的cdn
+const proCdn = {
   css: [
-    'https://unpkg.com/vant@2.12.48/lib/index.css',
+    'https://unpkg.com/vant@2.12.48/lib/index.css'
   ],
   js: [
-    'https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.runtime.min.js',
-    'https://cdn.bootcdn.net/ajax/libs/vue-router/3.5.4/vue-router.min.js',
-    'https://cdn.bootcdn.net/ajax/libs/vuex/3.6.2/vuex.min.js',
-    'https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js',
-    'https://unpkg.com/vant@2.12.48/lib/vant.min.js',
+    'https://unpkg.com/vue@2.6.14/dist/vue.runtime.min.js',
+    'https://unpkg.com/vue-router@3.5.4/dist/vue-router.min.js',
+    'https://unpkg.com/vuex@3.6.2/dist/vuex.min.js',
+    'https://unpkg.com/axios@0.27.2/dist/axios.min.js',
+    'https://unpkg.com/vant@2.12.48/lib/vant.min.js'
   ]
-};
-
+}
+// 打包忽略
 const objExternals = {
   vue: 'Vue',
   axios: 'axios',
@@ -39,7 +45,7 @@ const objExternals = {
 
 module.exports = {
   publicPath: './',
-  outputDir: process.env.VUE_APP_BASE_OUTPUTDIR,
+  outputDir: 'dist',
   assetsDir: 'assets',
   lintOnSave: true,
   productionSourceMap: false, // 不需要生产环境的 source map
@@ -48,8 +54,8 @@ module.exports = {
     types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
     // 配置，将当前页定义的cdn值传到主页面（index.html）
     config.plugin('html').tap(args => {
-    // 这里我是除本地环境，其余均使用CDN，可自己选择是否配置
-      args[0].cdn = process.env.VUE_APP_STAGE === 'development' ? {} : CDN
+      // 这里我是除本地环境，其余均使用CDN，可自己选择是否配置
+      args[0].cdn = process.env.VUE_APP_STAGE === 'development' ? devCdn : proCdn
       return args
     })
   },
@@ -57,13 +63,13 @@ module.exports = {
     devServer: {
       open: false,
       host: 'localhost',
-      port: '8600',
+      port: '8800',
       hot: true,
       proxy: {
         '/api': {
           target: baseURL,
           secure: false,
-          changeOrigin: true, // 开启代理
+          changeOrigin: true, // 是否允许跨域
           pathRewrite: {
             '^/api': '/'
           }
@@ -91,8 +97,8 @@ module.exports = {
       }),
       // build时生成打包报告
       new BundleAnalyzer({
-        analyzerMode: 'disabled', // 启用 server 不启用 disabled
-        openAnalyzer: false, // 是否自动打开报告页面
+        analyzerMode: 'disabled', // 启用:server 不启用:disabled
+        openAnalyzer: true, // 是否自动打开报告页面
         analyzerPort: 9999 // 报告页面端口
       })
     ]

@@ -103,7 +103,6 @@ export default {
 
 <style scoped lang="scss">
 .login_box {
-  @include box_shadow(0.2, red);
   padding: 20px;
 }
 </style>

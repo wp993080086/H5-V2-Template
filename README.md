@@ -12,12 +12,13 @@
 ![axios](https://img.shields.io/badge/0.27.2-axios-ff69b4)
 ![vue-router](https://img.shields.io/badge/3.5.4-vue%20router-blueviolet)
 ![vuex](https://img.shields.io/badge/3.6.2-vuex-yellow)
+![postcss-px-to-viewport](https://img.shields.io/badge/1.1.1-postcss--px--to--viewport-blue)
   
 </div>
 
 # ⚡️ 简介
 
-一个开箱即用，基于 `webpack 5` + `vue 2` + `vant` + `vuex` + `vue-router 3` + `axios` 的H5项目模板。
+一个开箱即用，基于 `webpack 5` + `vue 2` + `vant 2` + `vuex` + `vue-router 3` + `axios` 的H5项目模板。
 
 # 🚀 开发
 
@@ -48,8 +49,6 @@ npm run build
 ```
 
 # 🔧 代码修复
-
-- 自动修复
 
 ```
 npm run lint-fix

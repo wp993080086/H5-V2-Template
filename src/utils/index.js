@@ -29,3 +29,25 @@ export const deepClone = (obj) => {
   }
   return target
 }
+/**
+ * 获取随机数
+ * @param {Number} Limit 随机数上限
+ */
+export const getRandom = (Limit = 10) => {
+  return Math.round(Math.random() * Limit)
+}
+/**
+ * 手机号码校验
+ * @param {String} value
+ * @param {Function} callback
+ */
+export const validateMobile = (value, callback) => {
+  const RegExp = /^1(3[0-9]|4[01456879]|5[0-35-9]|6[2567]|7[0-8]|8[0-9]|9[0-35-9])\d{8}$/
+  if (value === '') {
+    callback(new Error('请填写联系电话'))
+  } else if (!RegExp.test(value)) {
+    callback(new Error('手机号码格式有误'))
+  } else {
+    callback()
+  }
+}
